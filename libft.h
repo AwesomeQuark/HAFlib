@@ -6,13 +6,14 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 18:22:48 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/01 05:24:20 by conoel           ###   ########.fr       */
+/*   Updated: 2019/02/01 05:29:45 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -97,5 +98,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 long				get_next_line(int fd, char **line, int c);
+void				exit_free(char *msg, char *format, ...);
+void				exit_(char *msg);
+
 
 #endif

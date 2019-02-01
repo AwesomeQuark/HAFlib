@@ -6,11 +6,11 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 13:47:41 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/01 05:24:57 by conoel           ###   ########.fr       */
+/*   Updated: 2019/02/01 05:43:17 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_char.h"
+#include "libft.h"
 
 /*
 **GETNEXTLINE perso qui renvoie len(line)+1
