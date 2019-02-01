@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: conoel <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: conoel <conoel@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 13:53:47 by conoel            #+#    #+#              #
-#    Updated: 2018/11/15 14:03:11 by conoel           ###   ########.fr        #
+#    Updated: 2019/02/01 05:26:22 by conoel           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-HEADER = ./libft.h
+HEADER = libft.h
 
 SRCS = ft_bzero.c ft_memcpy.c ft_memccpy.c ft_iscntrl.c ft_isgraph.c \
 ft_memmove.c ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c ft_strlen.c \
@@ -27,26 +27,22 @@ ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 ft_putnbr_fd.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c \
 ft_lstmap.c ft_lstnew.c ft_isspace.c ft_isblank.c ft_memset.c\
 
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
-$(NAME) :
+$(NAME) : $(OBJ)
 	@gcc -Wall -Werror -Wextra -c $(SRCS) -I$(HEADER)
 	@ar r $(NAME) *.o
 	@ranlib $(NAME)
-	@echo "Lib created !"
+	@echo "Libft.a file created !"
 
-.PHONY: clean
 clean :
 	@rm -f *.o
-	@echo ".o Removed"
+	@echo "libft .o Removed"
 
-.PHONY: fclean
 fclean : clean
 	@rm -f $(NAME)
-	@echo "Lib file removed"
+	@echo "Libft.a file removed"
 
-.PHONY: re
 re : fclean all
-
-heil : re clean
-	@echo "Heil Anne Franck !!!"
