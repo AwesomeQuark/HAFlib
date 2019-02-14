@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   additional_converters.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:41:16 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/14 05:46:43 by conoel           ###   ########.fr       */
+/*   Created: 2019/01/30 11:43:59 by conoel            #+#    #+#             */
+/*   Updated: 2019/02/13 20:17:16 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	print_errno(t_flag *all)
 {
-	char	*end;
-	size_t		index;
+	char	*tmp;
 
-	if (!s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	index = 0;
-	if (!(end = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
-		return (NULL);
-	while (*s1)
-		end[index++] = *(s1++);
-	while (*s2)
-		end[index++] = *(s2++);
-	end[index] = '\0';
-	return (end);
+	tmp = strerror(errno);
+	ft_strcat2(tmp, all);
+	all->space = 0;
+}
+
+void	get_charwriten(t_flag *all)
+{
+	int		*ptr;
+
+	ptr = va_arg(all->ap, int *);
+	*ptr = all->buffer_index;
 }

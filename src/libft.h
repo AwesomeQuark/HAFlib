@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 18:22:48 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/13 18:08:24 by conoel           ###   ########.fr       */
+/*   Updated: 2019/02/14 05:44:56 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include <errno.h>
 # include <sys/types.h>
 # include <sys/uio.h>
 
-# define BUFF_SIZE 128
-# define ITER_MAX (UINT_MAX)
+# define BUFF_SIZE 256
+# define ITER_MAX (INT_MAX / BUFF_SIZE)
+# define BUFF 2048
+# define I all->str_index
 
 int					ft_atoi(const char *nptr);
 int					ft_isalnum(int c);
@@ -67,7 +70,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 char				*ft_strjoin(char const *s1, char const *s2);
 void				exit_free(char *msg, int format, ...);
 void				exit_(char *msg);
-char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit(char *s, char c);
 void				print_char_str(char c, size_t nb);
 long long			ft_strtoll(char *ptr, size_t *index, int base);
 int					ft_getc(int fd);
@@ -76,8 +79,8 @@ void				free_tab(char **tab);
 int					ft_isalphanum_base(int c, int base, int maj);
 void				*ft_bzero(void *s, size_t n);
 char				*ft_strdup(const char *s);
+void				print_int_str(int *tab, size_t len);
 
-// A REMPLACER PAR FT_PRINTF
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -86,4 +89,58 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
+
+// PRINTF
+typedef struct	s_flag
+{
+	char	buffer[BUFF + 1];
+	va_list	ap;
+	size_t	buffer_index;
+	size_t	str_index;
+	int		total_size;
+	char	type;
+	char	intflags;
+	int		precision;
+	int		minsize;
+	char	minus;
+	char	plus;
+	char	l;
+	char	space;
+	char	hash;
+	char	zero;
+}				t_flag;
+
+void			*ft_memset2(void *s, int c, size_t n);
+void			ft_bzero2(char *s, size_t n);
+int				ft_strcmp2(const char *s1, const char *s2);
+char			*ft_strdup2(const char *s);
+size_t			ft_strlen2(const char *s);
+char			*ft_itoa2(int n);
+int				ft_atoi2(char *s, t_flag *all);
+void			ft_strrev2(char *str);
+
+/*
+**itoabu stands for : integer to array base unsigned
+**itoabs stands for : integer to array base signed
+*/
+void			ft_ftoa(long double num, t_flag *all);
+void			ft_itoabu(unsigned long long nb, t_flag *all);
+void			ft_itoabs(long long nb, t_flag *all);
+void			ft_ptoa(size_t nb, t_flag *flags);
+void			char_flags(char ret, t_flag *all);
+void			str_flags(char *ret, t_flag *all);
+void			print(char *ret, t_flag *all);
+void			ft_strcat2(char *arg, t_flag *all);
+void			ft_charcat2(char arg, t_flag *all);
+void			ft_strlcat2(char *arg, t_flag *all, size_t size);
+
+void			get_int(t_flag *flags);
+void			get_int_base(t_flag *flags);
+void			get_pourcent(t_flag *flags);
+void			get_float(t_flag *all);
+void			get_nothing(t_flag *all);
+void			print_errno(t_flag *all);
+void			get_charwriten(t_flag *all);
+
+int				ft_printf(const char *str, ...);
 #endif

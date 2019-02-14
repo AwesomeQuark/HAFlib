@@ -12,7 +12,7 @@
 
 ################################### VARIABLES ##################################
 
-NAME = libft.a
+NAME = haflib.a
 HEADER = src/libft.h
 
 SRCNAME = ft_bzero.c ft_memcpy.c ft_memccpy.c ft_iscntrl.c ft_isgraph.c \
@@ -25,7 +25,12 @@ ft_strclr.c ft_strsub.c \
 ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c \
 ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 ft_putnbr_fd.c ft_isspace.c ft_isblank.c ft_memset.c quit.c\
-ft_strtoll.c get_the_file.c print_char_str.c free_tab.c
+ft_strtoll.c get_the_file.c print_char_str.c free_tab.c print_int_str.c\
+\
+ft_printf.c get_args.c ft_size_flags.c additional_converters.c \
+ft_ftoa.c ft_itoa_base_unsigned.c ft_itoa_base_signed.c ft_ptoa.c\
+ft_bzero2.c ft_strcmp2.c ft_strlen2.c ft_strcat2.c ft_memset2.c ft_strdup2.c ft_atoi2.c
+
 SRCDIR = src/
 SRCS = ${addprefix $(SRCDIR), $(SRCNAME)}
 
@@ -33,11 +38,9 @@ OBJNAME = $(SRCNAME:.c=.o)
 OBJDIR = obj/
 OBJ = ${addprefix $(OBJDIR), $(OBJNAME)}
 
-PRINTF = printf/libftprintf.a
-
-FLAG = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 CC = clang
-DEPENDENCY = libftprintf.a
+DEPENDENCY = none
 
 ##################################### RULES #####################################
 
@@ -49,22 +52,20 @@ all: $(NAME)
 
 clean :
 	@rm -rf $(OBJDIR)
-	@make clean -C printf
 
 fclean :
 	@rm -rf $(OBJDIR)
 	@rm -f $(NAME)
-	@make fclean -C printf
 	@echo "\033[31m\033[1m\033[4mCleaning\033[0m\033[31m : Everything\033[0m [$(NAME)]";
 
 re : fclean all
 
 # COMPILATION #
 
-$(NAME) : $(OBJDIR) $(OBJ) $(HEADER) $(PRINTF)
+$(NAME) : $(PRINTF) $(OBJDIR) $(OBJ) $(HEADER)
 	@ar rc $(NAME) $(OBJ) $(PRINTF)
 	@ranlib $(NAME)
-	@echo "\033[1m\033[4m\033[35m/!\ Done compilate /!\\\\\033[0m [$(NAME)] --> $(DEPENDENCY)"
+	@echo "\n \033[1m\033[4m\033[35m\\^/ Done compilate \\^/\033[0m [$(NAME)] --> $(DEPENDENCY)"
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)
 	@clang $(FLAGS) -c $< -o $@ -I$(HEADER)
@@ -72,8 +73,5 @@ $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)
 
 $(OBJDIR):
 	@mkdir $(OBJDIR)
-	@echo "\n>========= * \033[32m\033[1mCreating $(NAME) obj dir\033[0m * =========<\n";
-
-$(PRINTF):
-	@make -C printf
+	@echo "\n>========= * \033[32m\033[1mCreating $(NAME) obj dir\033[0m * =========<";
 
