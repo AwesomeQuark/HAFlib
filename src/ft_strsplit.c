@@ -6,11 +6,22 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 11:53:38 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/14 08:11:00 by conoel           ###   ########.fr       */
+/*   Updated: 2019/02/14 15:23:08 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char		*new_line(int size, char *s)
+{
+	char	*ret;
+
+	if (!(ret = malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	ret[size] = '\0';
+	ret = ft_memcpy(ret, &(s[-size]), size);
+	return (ret);
+}
 
 static int		fill_tab(char *s, char **ret, char c)
 {
@@ -21,14 +32,12 @@ static int		fill_tab(char *s, char **ret, char c)
 	i = 0;
 	j = 0;
 	size = 0;
-	while (s[i])
+	while (s[i] != c)
 	{
 		if (s[i] == c)
 		{
-			if (!(ret[j] =  malloc(sizeof(char) * (size + 1))))
+			if (!(ret[j] = new_line(size, &(s[i]))))
 				return (0);
-			ft_bzero(ret[j], size + 1);
-			ret[j] = ft_memcpy(ret[j], &(s[i - size]), size);
 			j++;
 			size = -1;
 		}
@@ -42,13 +51,15 @@ static int		fill_tab(char *s, char **ret, char c)
 static int		get_nb_word(char *s, char c)
 {
 	int		nb_word;
+	int		i;
 	
+	i = 0;
 	nb_word = 0;
-	while (*s)
+	while (s[i])
 	{
-		if (*s == c)
+		if (s[i] == c)
 			nb_word++;
-		s++;
+		i++;
 	}
 	return (nb_word);
 }
