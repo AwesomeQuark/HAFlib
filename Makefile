@@ -69,10 +69,10 @@ $(NAME) : $(PRINTF) $(OBJDIR) $(OBJ) $(HEADER)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)
 	@clang $(FLAGS) -c $< -o $@ -I$(HEADER)
-	@echo "\033[32m\033[1m\033[4mCompilating\033[0m\033[32m : $@\033[0m [$(NAME)]";
+	@printf "\033[32m\033[1m\033[4mCompilating\033[0m\033[32m : %-30s\033[0m [$(NAME)]\n" $@
 
 $(OBJDIR):
 	@clear
 	@mkdir $(OBJDIR)
-	@echo "\n>========= * \033[32m\033[1mCreating $(NAME) obj dir\033[0m * =========<";
+	@echo "\n>=========== * \033[32m\033[1mCreating $(NAME) obj dir\033[0m * ===========<";
 
