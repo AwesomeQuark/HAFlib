@@ -6,15 +6,26 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 09:42:25 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/14 05:40:21 by conoel           ###   ########.fr       */
+/*   Updated: 2019/03/19 16:49:25 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <limits.h>
+static char	*add_one_byte(char *ret)
+{
+	char *tmp;
 
-char	*get_the_file(int fd)
+	tmp = ret;
+	if (!(ret = malloc(sizeof(char) * (ft_strlen(ret) + 2))))
+		return (NULL);
+	ft_bzero(ret, ft_strlen(tmp) + 2);
+	ft_memcpy(ret, tmp, ft_strlen(tmp));
+	free(tmp);
+	return (ret);
+}
+
+char		*get_the_file(int fd)
 {
 	char		*ret;
 	char		*tmp;
@@ -27,11 +38,12 @@ char	*get_the_file(int fd)
 	while (read(fd, buffer, BUFF_SIZE) != 0)
 	{
 		tmp = ret;
-		ret = ft_strjoin(ret, buffer);
+		if (!(ret = ft_strjoin(ret, buffer)))
+			return (NULL);
 		if (tmp != NULL)
 			free(tmp);
 		if (ft_memchr(buffer, '\0', BUFF_SIZE) != NULL)
-			break;
+			break ;
 		ft_bzero(buffer, BUFF_SIZE + 1);
 		if (iter_max++ > ITER_MAX)
 		{
@@ -39,5 +51,5 @@ char	*get_the_file(int fd)
 			return (NULL);
 		}
 	}
-	return (ret);
+	return (add_one_byte(ret));
 }

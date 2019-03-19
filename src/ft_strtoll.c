@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 17:00:20 by conoel            #+#    #+#             */
-/*   Updated: 2019/02/13 16:13:56 by conoel           ###   ########.fr       */
+/*   Updated: 2019/03/19 17:14:09 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,15 @@ long long	ft_strtoll(char *ptr, size_t *index, int base)
 	while (ft_isspace(ptr[i]))
 		i++;
 	sign = (ptr[i] == '-') ? -1 : 1;
-	if (ptr[i] == '-' || ptr[i] == '+')
-		i++;
-	if (ft_strlen(&(ptr[i])) > 2 && ptr[i] == '0' && (ptr[i + 1] == 'x' || ptr[i + 1] == 'X') && base == 0)
+	ptr[i] == '-' || ptr[i] == '+' ? i++ : 0;
+	if (ft_strlen(&(ptr[i])) > 2 && ptr[i] == '0' && (ptr[i + 1] == 'x'
+		|| ptr[i + 1] == 'X') && base == 0)
 	{
 		maj = (ptr[i + 2] == 'X') ? 1 : 0;
 		base = 16;
 		i += 2;
 	}
-	if (base == 0)
-		base = 10;
+	base == 0 ? base = 10 : 0;
 	while (ft_isalphanum_base(ptr[i], base, maj))
 	{
 		ret *= base;
