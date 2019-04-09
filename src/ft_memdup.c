@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 10:45:43 by conoel            #+#    #+#             */
-/*   Updated: 2019/04/08 15:18:57 by conoel           ###   ########.fr       */
+/*   Created: 2019/04/09 16:51:56 by conoel            #+#    #+#             */
+/*   Updated: 2019/04/09 16:56:42 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "garbage.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_memdup(const char *s, size_t size)
 {
-	int		index;
+	size_t	index;
 	char	*end;
 
-	index = ft_strlen(s) + 1;
-	if (!(end = (char *)malloc_garbage(sizeof(char) * (index))))
+	index = 0;
+	if (!(end = (char *)malloc_garbage(sizeof(char) * size)))
 		return (0);
-	while (--index >= 0)
+	end[size] = '\0';
+	while (size-- > 0)
+	{
 		end[index] = s[index];
+		index++;
+	}
 	return (end);
 }
