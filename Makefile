@@ -6,7 +6,7 @@
 #    By: conoel <conoelstudent.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 13:53:47 by conoel            #+#    #+#              #
-#    Updated: 2019/02/13 17:41:55 by conoel           ###   ########.fr        #
+#    Updated: 2019/04/22 08:31:40 by bghandou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #V2.2
@@ -27,9 +27,9 @@ ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strnew.c ft_strdel.c\
 ft_strclr.c ft_strsub.c \
 ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putchar.c ft_putstr.c \
 ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-ft_putnbr_fd.c ft_isspace.c ft_isblank.c ft_memset.c quit.c\
+ft_putnbr_fd.c ft_isspace.c ft_isblank.c ft_memset.c quit.c ft_memdup.c\
 ft_strtoll.c get_the_file.c print_char_str.c free_tab.c print_int_str.c\
-\
+garbage.c\
 ft_printf.c get_args.c ft_size_flags.c additional_converters.c \
 ft_ftoa.c ft_itoa_base_unsigned.c ft_itoa_base_signed.c ft_ptoa.c\
 ft_bzero2.c ft_strcmp2.c ft_strlen2.c ft_strcat2.c ft_memset2.c ft_strdup2.c ft_atoi2.c
@@ -67,11 +67,11 @@ re : fclean all
 $(NAME) : $(OBJDIR) $(OBJ) $(HEADER)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\n \033[1m\033[4m\033[35m\\^/ Done compilate \\^/\033[0m [$(NAME)] --> $(DEPENDENCY)"
+	@echo "\n \033[1m\033[4m\033[35m\\^/ Done compiling \\^/\033[0m [$(NAME)] --> $(DEPENDENCY)"
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)
 	@clang $(FLAGS) -c $< -o $@ -I$(HEADER_DIR)
-	@printf "\033[32m\033[1m\033[4mCompilating\033[0m\033[32m : %-30s\033[0m [$(NAME)]\n" $@
+	@printf "\033[32m\033[1m\033[4mCompiling\033[0m\033[32m : %-30s\033[0m [$(NAME)]\n" $@
 
 $(OBJDIR):
 	@clear

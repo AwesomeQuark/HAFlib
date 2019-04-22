@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char_str.c                                   :+:      :+:    :+:   */
+/*   quit.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/02 01:03:37 by conoel            #+#    #+#             */
-/*   Updated: 2019/04/19 14:44:22 by conoel           ###   ########.fr       */
+/*   Created: 2019/04/08 14:59:04 by conoel            #+#    #+#             */
+/*   Updated: 2019/04/08 14:59:37 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef QUIT_H
+# define QUIT_H
 
-void	print_char_str(char c, size_t nb)
-{
-	char	*buff;
-	int		i;
+# include <unistd.h>
 
-	i = nb;
-	if (!(buff = malloc(sizeof(char) * nb + 1)))
-		exit_(NULL);
-	while (i--)
-		buff[i] = c;
-	write(1, buff, nb);
-	free(buff);
-}
+void				exit_free(char *msg, int format, ...);
+void				exit_(char *msg);
+size_t				return_free(char *msg, int format, ...);
+size_t				return_(char *msg);
+
+#endif

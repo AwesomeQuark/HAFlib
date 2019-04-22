@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char_str.c                                   :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/02 01:03:37 by conoel            #+#    #+#             */
-/*   Updated: 2019/04/19 14:44:22 by conoel           ###   ########.fr       */
+/*   Created: 2019/04/09 16:51:56 by conoel            #+#    #+#             */
+/*   Updated: 2019/04/19 18:12:27 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "garbage.h"
 
-void	print_char_str(char c, size_t nb)
+char	*ft_memdup(const char *s, size_t size)
 {
-	char	*buff;
-	int		i;
+	size_t	index;
+	char	*end;
 
-	i = nb;
-	if (!(buff = malloc(sizeof(char) * nb + 1)))
-		exit_(NULL);
-	while (i--)
-		buff[i] = c;
-	write(1, buff, nb);
-	free(buff);
+	index = 0;
+	if (!(end = (char *)malloc(sizeof(char) * size)))
+		return (0);
+	end[size] = '\0';
+	while (size-- > 0)
+	{
+		end[index] = s[index];
+		index++;
+	}
+	return (end);
 }

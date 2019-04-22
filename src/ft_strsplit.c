@@ -6,11 +6,12 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 11:53:38 by conoel            #+#    #+#             */
-/*   Updated: 2019/03/19 16:56:58 by conoel           ###   ########.fr       */
+/*   Updated: 2019/04/19 18:12:34 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "garbage.h"
 
 static int		fill_tab(char *s, char **ret, char c)
 {
