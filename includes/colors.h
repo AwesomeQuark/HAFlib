@@ -6,12 +6,12 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 16:05:11 by conoel            #+#    #+#             */
-/*   Updated: 2019/04/19 16:16:24 by conoel           ###   ########.fr       */
+/*   Updated: 2019/04/25 16:54:00 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef COLORS_H
+# define COLORS_H
 
 # define DEF "\e[39m"
 # define BLACK "\e[30m"
