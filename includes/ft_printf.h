@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 23:07:50 by conoel            #+#    #+#             */
-/*   Updated: 2019/05/25 12:56:18 by conoel           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:13:35 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_flag
 	va_list	ap;
 	size_t	buffer_index;
 	size_t	str_index;
+	int		fd;
 	int		total_size;
 	char	type;
 	char	intflags;
@@ -66,7 +67,6 @@ void			ft_strrev(char *str);
 **itoabu stands for : integer to array base unsigned
 **itoabs stands for : integer to array base signed
 */
-void			ft_ftoa(long double num, t_flag *all);
 void			ft_itoabu(unsigned long long nb, t_flag *all);
 void			ft_itoabs(long long nb, t_flag *all);
 void			ft_ptoa(size_t nb, t_flag *flags);

@@ -31,8 +31,8 @@ SRCNAME = 			ft_bzero.c ft_memcpy.c ft_memccpy.c ft_iscntrl.c ft_isgraph.c \
 					ft_strtoll.c get_the_file.c print_char_str.c free_tab.c print_int_str.c\
 					garbage.c concat.c ft_atos.c ft_atoc.c\
 					ft_printf.c get_args.c ft_size_flags.c additional_converters.c \
-					ft_ftoa.c ft_itoa_base_unsigned.c ft_itoa_base_signed.c ft_ptoa.c\
-					ft_strcat2.c ft_atoi2.c
+					ft_itoa_base_unsigned.c ft_itoa_base_signed.c ft_ptoa.c\
+					ft_strcat2.c ft_atoi2.c ft_dprintf.c
 SRCDIR = src/
 SRCS = ${addprefix $(SRCDIR), $(SRCNAME)}
 

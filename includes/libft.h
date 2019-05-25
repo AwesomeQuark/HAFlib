@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 18:22:48 by conoel            #+#    #+#             */
-/*   Updated: 2019/05/25 13:03:57 by conoel           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:17:17 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct		s_flag
 	va_list	ap;
 	size_t	buffer_index;
 	size_t	str_index;
+	int		fd;
 	int		total_size;
 	char	type;
 	char	intflags;
@@ -139,6 +140,12 @@ void				get_float(t_flag *all);
 void				get_nothing(t_flag *all);
 void				print_errno(t_flag *all);
 void				get_charwriten(t_flag *all);
+void				init(t_flag *all, int start, int fd);
+int					if_norme(char s, int type);
+void				parse_flags(t_flag *all, char *str);
+int					get_next_arg(t_flag *all, char *str);
 
 int					ft_printf(const char *str, ...);
+int					ft_dprintf(int fd, const char *str, ...);
+
 #endif
