@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 18:22:48 by conoel            #+#    #+#             */
-/*   Updated: 2019/05/25 12:56:03 by conoel           ###   ########.fr       */
+/*   Updated: 2019/05/25 13:03:57 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ void				*ft_bzero(void *s, size_t n);
 char				*ft_strdup(const char *s);
 char				*ft_memdup(const char *s, size_t size);
 void				print_int_str(int *tab, size_t len);
-
+char				ft_atoc(char *nb);
+short				ft_atos(char *nb);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);

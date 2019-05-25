@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/13 18:03:06 by conoel            #+#    #+#             */
-/*   Updated: 2019/05/25 12:51:15 by conoel           ###   ########.fr       */
+/*   Updated: 2019/05/25 13:09:24 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 
 # define BUFF_SIZE 16
 # define ITER_MAX (INT_MAX / BUFF_SIZE)
-
 
 /*
 ** PARSING
@@ -58,6 +57,7 @@ void				free_tab(char **tab);
 */
 int					ft_atoi(const char *nptr);
 short				ft_atos(char *nb);
+char				ft_atoc(char *nb);
 long long			ft_strtoll(char *ptr, size_t *index, int base);
 
 /*
