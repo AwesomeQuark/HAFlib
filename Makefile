@@ -9,7 +9,7 @@
 #    Updated: 2019/04/22 08:31:40 by bghandou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-#V2.2
+#V2.3
 ################################### VARIABLES ##################################
 
 NAME = haflib.a
@@ -32,7 +32,7 @@ SRCNAME = 			ft_bzero.c ft_memcpy.c ft_memccpy.c ft_iscntrl.c ft_isgraph.c \
 					garbage.c concat.c\
 					ft_printf.c get_args.c ft_size_flags.c additional_converters.c \
 					ft_ftoa.c ft_itoa_base_unsigned.c ft_itoa_base_signed.c ft_ptoa.c\
-					ft_bzero2.c ft_strcmp2.c ft_strlen2.c ft_strcat2.c ft_memset2.c ft_strdup2.c ft_atoi2.c
+					ft_strcat2.c ft_atoi2.c
 SRCDIR = src/
 SRCS = ${addprefix $(SRCDIR), $(SRCNAME)}
 
@@ -43,8 +43,8 @@ OBJ = ${addprefix $(OBJDIR), $(OBJNAME)}
 PRINTF_NAME = printf.a
 PRINTF_SRCNAME = 	ft_printf.c get_args.c ft_size_flags.c additional_converters.c \
 					ft_ftoa.c ft_itoa_base_unsigned.c ft_itoa_base_signed.c ft_ptoa.c\
-					ft_bzero2.c ft_strcmp2.c ft_strlen2.c ft_strcat2.c ft_memset2.c\
-					ft_strdup2.c ft_atoi2.c
+					ft_bzero.c ft_strcmp.c ft_strlen.c ft_strcat2.c ft_memset.c\
+					ft_strdup.c ft_atoi2.c
 PRINTF_OBJNAME = $(PRINTF_SRCNAME:.c=.o)
 PRINTF_SRC = ${addprefix $(SRCDIR), $(PRINTF_SRCNAME)}
 PRINTF_OBJ = ${addprefix $(OBJDIR), $(PRINTF_OBJNAME)}
