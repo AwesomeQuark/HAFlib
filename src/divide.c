@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tab.c                                         :+:      :+:    :+:   */
+/*   divide.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/13 10:19:00 by conoel            #+#    #+#             */
-/*   Updated: 2019/05/25 18:59:04 by conoel           ###   ########.fr       */
+/*   Created: 2019/05/26 12:22:28 by conoel            #+#    #+#             */
+/*   Updated: 2019/05/26 12:25:42 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	free_tab(char **tab)
+unsigned int	divide(int a, int b)
 {
-	size_t	i;
+	if (a == 0 || b == 0)
+		return (0);
+	else
+		return (a / b);
+}
 
-	i = 0;
-	if (!tab)
-		return ;
-	while (tab[i] != NULL)
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
+unsigned int	modulo(int a, int b)
+{
+	if (a == 0 || b == 0)
+		return (0);
+	else
+		return (a % b);
 }

@@ -6,7 +6,7 @@
 /*   By: conoel <conoel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 23:07:50 by conoel            #+#    #+#             */
-/*   Updated: 2019/05/25 18:13:35 by conoel           ###   ########.fr       */
+/*   Updated: 2019/05/25 18:28:48 by conoel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct	s_flag
 }				t_flag;
 
 void			*ft_memset(void *s, int c, size_t n);
-void			ft_bzero(char *s, size_t n);
+void			*ft_bzero(void *s, size_t n);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(const char *s);
 size_t			ft_strlen(const char *s);
@@ -80,11 +80,11 @@ void			ft_strlcat2(char *arg, t_flag *all, size_t size);
 void			get_int(t_flag *flags);
 void			get_int_base(t_flag *flags);
 void			get_pourcent(t_flag *flags);
-void			get_float(t_flag *all);
 void			get_nothing(t_flag *all);
 void			print_errno(t_flag *all);
 void			get_charwriten(t_flag *all);
 
+int				ft_dprintf(int fd, const char *str, ...);
 int				ft_printf(const char *str, ...);
 
 #endif
